@@ -1,0 +1,64 @@
+.about-text {
+  background-color: rgba(0, 0, 0, .7);
+}
+
+pre {
+  white-space: pre-wrap;
+  text-align: justify;
+  font-family: 'Poppins';
+  font-style: italic;
+}
+
+.progress {
+  background: rgba(255, 255, 255, .05);
+  transition: all .5s ease 0s;
+}
+
+.progress:hover {
+  background: rgba(255, 255, 255, .1);
+}
+
+.progress-bar {
+  background-color: #155dbb;
+  transition: all .5s ease 0s;
+}
+
+.progress-bar:hover {
+  background-color: #1878d2;
+}
+
+.dropdown-toggle {
+  color: #fff;
+  border: none;
+}
+
+.dropdown-toggle:hover {
+  color: #1878d2;
+}
+
+.black-card {
+  background-color: rgba(0, 0, 0, .5);
+  color: #fff;
+}
+
+.frameworks .icon-box {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  transition: ease-in-out 0.3s;
+}
+
+.frameworks .icon-box:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.no-btn {
+  color: #fff;
+  animation: none;
+  cursor: default;
+  border: none;
+}
+
+.no-btn:hover {
+  color: #ccc;
+}

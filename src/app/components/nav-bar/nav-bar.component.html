@@ -1,0 +1,51 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+  <div class="container-fluid container-lg">
+
+
+    <span class="navbar-brand me-0">{{firstName}} {{lastName}}</span>
+    
+    <span *ngIf="openToWork" class="badge bg-success rounded-pill" (mouseover)="onOpenToWork()" (mouseout)="onOpenToWork()" (click)="goContact()">
+      {{ openSpan }}
+    </span>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+      aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbar">
+      <!-- Spacer --> <div class="me-auto"></div> <!-- Spacer -->
+
+      <ul class="navbar-nav mb-2 mb-md-0">
+
+        <li class="nav-item" id="home">
+          <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'home'}" [routerLink]="['']"
+            data-bs-toggle="collapse" data-bs-target="#navbar">Inicio</a>
+        </li>
+
+        <li class="nav-item" id="about">
+          <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'about'}" [routerLink]="['/about']"
+            data-bs-toggle="collapse" data-bs-target="#navbar">Acerca de mí</a>
+        </li>
+
+        <li class="nav-item" id="resume">
+          <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'resume'}" [routerLink]="['/resume']"
+            data-bs-toggle="collapse" data-bs-target="#navbar">Curriculum Vitae</a></li>
+
+        <li class="nav-item" id="portfolio">
+          <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'portfolio'}" [routerLink]="['/portfolio']"
+            data-bs-toggle="collapse" data-bs-target="#navbar">Portfolio</a>
+        </li>
+
+        <li class="nav-item" id="contact">
+          <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'contact'}" [routerLink]="['/contact']"
+            data-bs-toggle="collapse" data-bs-target="#navbar">Contacto</a>
+        </li>
+
+      </ul>
+    </div>
+
+
+  </div>
+</nav>

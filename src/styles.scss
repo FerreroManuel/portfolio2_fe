@@ -1,0 +1,109 @@
+body {
+  background-color: #040404;
+  color: #fff;
+  position: relative;
+  background: transparent;
+  margin-bottom: 5%;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  background: #040404 url("/assets/img/bg9.jpg") top center no-repeat;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 20px;
+  border: 1px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, .2);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(255, 255, 255, .3);
+  border-radius: 20px;
+}
+
+a {
+  color: #1878d2;
+  text-decoration: none;
+  transition: all 1s ease 0s;
+  }
+
+a:hover {
+  color: #18b0d2;
+  text-decoration: none;
+}
+
+.section-title h1 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+}
+
+.section-title h1::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #4c96eb;
+  margin: 4px 10px;
+}
+
+.section-title h2 {
+  margin: 0;
+  margin-top: -15px;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.section-title h3 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+}
+
+.section-title h3::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #4c96eb;
+  margin: 4px 10px;
+}
+
+.modal-content,
+.modal-header,
+.modal-footer {
+  background-color: rgba(0,0,0,.8);
+  border-color: #252525;
+}

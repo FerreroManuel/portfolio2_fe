@@ -1,0 +1,19 @@
+<div class="container-lg" id="header">
+
+
+  <div class="typing-container">
+    <h2>{{ jobTitle }}: <span class="typed-text"></span><span class="cursor">&nbsp;</span></h2>
+  </div>
+
+  <div class="social-links">
+    <a *ngFor="let i of socialLinks" href="{{ i.link }}" target="_blank" data-bs-toggle="tooltip"
+      data-bs-placement="bottom" title="ir a {{ i.title }}">
+      <i class="{{ i.icon }}"></i>
+    </a>
+
+    <a href="{{ cvEsp }}" download="CV - {{lastName}} {{firstName}}.pdf" data-bs-toggle="tooltip" data-bs-placement="bottom"
+      title="Descargar CV">
+      <i class="bi bi-file-earmark-pdf"></i>
+    </a>
+
+  </div>

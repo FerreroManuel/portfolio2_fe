@@ -1,0 +1,70 @@
+<div class="container-lg portfolio">
+
+  <div class="section-title my-5">
+    <h1>Portfolio</h1>
+    <h2>Mis proyectos</h2>
+  </div>
+
+  <!-- Filters -->
+  <div class="row">
+    <div class="col-lg-12 d-flex justify-content-center">
+      <ul id="portfolio-filters">
+        <li id="*" (click)="filterProjects('*')" class="filter-active">Todo</li>
+        <li id="pro" (click)="filterProjects('pro')">En producción <i class="bi bi-circle-fill" style="color:green"></i>
+        </li>
+        <li id="dev" (click)="filterProjects('dev')">En desarrollo <i class="bi bi-circle-fill" style="color:blue"></i>
+        </li>
+        <li id="pau" (click)="filterProjects('pau')">Pausado <i class="bi bi-circle-fill" style="color:grey"></i></li>
+        <li id="can" (click)="filterProjects('can')">Cancelado <i class="bi bi-circle-fill" style="color:red"></i></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <!-- Project -->
+    <div *ngFor="let project of projects" class="col-lg-4 col-md-6 portfolio-item">
+      <div class="portfolio-wrap">
+        <img src="{{project.project_images[0]}}" class="img-fluid" alt="Proyecto: {{ project.title }}">
+        <div class="portfolio-info">
+          <h4>{{ project.title }}</h4>
+          <p>{{ project.category.title }}</p>
+          <div class="portfolio-links">
+
+            <a title="Ver detalles" data-bs-toggle="modal" [attr.data-bs-target]="'#project' + project.id">
+              <i class="bi bi-plus"></i>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Project details modal -->
+      <div class="modal fade" id="project{{ project.id }}" tabindex="-1"
+        [attr.aria-labelledby]="'projectLabel' + project.id" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <p class="h2 modal-title" id="projectLabel{{ project.id }}">{{ project.title }}</p>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+
+                <app-project-details [projectDetails]="project"></app-project-details>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

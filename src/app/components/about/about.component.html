@@ -1,0 +1,92 @@
+<div class="container-lg">
+
+  <div class="section-title my-5">
+    <h1>Acerca de mí</h1>
+    <h2>Aprende más acerca de mí</h2>
+  </div>
+
+  <!-- ======= About  ======= -->
+  <div class="row">
+
+    <div class="col-md-4 text-center" data-aos="fade-right">
+      <img src="{{ aboutPhoto }}" class="img-fluid" alt="">
+    </div>
+
+    <div class="col-md-8 pt-4 pt-lg-0 about-text" data-aos="fade-left">
+      <pre>{{ aboutText }}</pre>
+    </div>
+
+  </div>
+
+  <!-- ======= Skills  ======= -->
+  <div class="container-fluid container-lg mt-5">
+
+    <div class="section-title">
+      <h1>Habilidades</h1>
+    </div>
+
+
+    <div class="row">
+
+      <div *ngFor="let skill of skills" class="col-lg-6">
+        <button class="btn mx-3 dropdown-toggle" type="button" data-bs-toggle="collapse"
+          [attr.data-bs-target]="'#collapse' + skill.title" aria-expanded="false"
+          [attr.aria-controls]="'collapse' + skill.title">
+          {{skill.title}}
+        </button>
+        <div class="progress mx-3 mb-3">
+          <div class="progress-bar progress-bar-striped" role="progressbar"
+            [attr.style]="'width: ' + skill.proficiency + '%;'" [attr.aria-valuenow]="skill.proficiency"
+            aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div *ngIf="hasFramework(skill.id)" class="collapse mx-3" id="collapse{{skill.title}}">
+          <div class="black-card card card-body">
+            <div class="frameworks container-fluid container-lg">
+
+              <div class="section-title">
+                <h3>Librerías / frameworks</h3>
+              </div>
+
+              <div class="row row-cols-2 row-cols-md-5 row-cols-lg-3">
+                <ng-container *ngFor="let framework of frameworks">
+                  <div class="col" *ngIf="framework.skill.id == skill.id">
+                    <div class="icon-box my-2 p-1 pt-4 mb-2">
+                      <i class="iconify" [attr.data-icon]="framework.icon" data-width="50" data-height="50"></i>
+                      <p>{{ framework.title }}</p>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div> <!-- End skills -->
+
+
+  <!-- ======= Languages  ======= -->
+  <div class="container-fluid container-lg mt-5">
+
+    <div class="section-title">
+      <h1>Idiomas</h1>
+    </div>
+
+    <div class="row">
+      <div *ngFor="let language of languages" class="col-6">
+        <button class="btn mx-3 no-btn">
+          {{ language.title }}
+        </button>
+        <div class="progress mx-3 mb-3">
+          <div class="progress-bar progress-bar-striped" role="progressbar"
+            [attr.style]="'width: ' + language.proficiency+ '%;'" [attr.aria-valuenow]="language.proficiency"
+            aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- End languages-->

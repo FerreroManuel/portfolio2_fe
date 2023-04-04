@@ -1,0 +1,7 @@
+<div class="app-nav-bar">
+  <app-nav-bar></app-nav-bar>
+</div>
+
+<div class="router-outlet" [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
