@@ -21,6 +21,7 @@ import { NotFoundComponent } from './components/errors/not-found/not-found.compo
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EnglishComponent } from './components/english/english.component';
 
 
 registerLocaleData(localeEs, 'es-AR')
@@ -37,6 +38,7 @@ registerLocaleData(localeEs, 'es-AR')
     ContactComponent,
     NotFoundComponent,
     ProjectDetailsComponent,
+    EnglishComponent,
   ],
   imports: [
     BrowserModule,

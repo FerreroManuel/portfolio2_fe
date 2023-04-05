@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { NotFoundComponent } from './components/errors/not-found/not-found.component';
+import { EnglishComponent } from './components/english/english.component';
 import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/errors/not-found/not-found.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ResumeComponent } from './components/resume/resume.component';
 
@@ -13,6 +15,7 @@ const routes: Routes = [
   {path: 'resume', component: ResumeComponent, data: { animation: 'routerAnimation' }},
   {path: 'portfolio', component: PortfolioComponent, data: { animation: 'routerAnimation' }},
   {path: 'contact', component: ContactComponent, data: { animation: 'routerAnimation' }},
+  {path: 'english', component: EnglishComponent, data: { animation: 'routerAnimation' }},
 
   {path: '**', component: NotFoundComponent, data: { animation: 'routerAnimation' }}
 ];

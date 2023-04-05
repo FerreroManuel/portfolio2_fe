@@ -43,6 +43,11 @@
             data-bs-toggle="collapse" data-bs-target="#navbar">Contacto</a>
         </li>
 
+        <li class="nav-item" id="english">
+          <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'english'}" [routerLink]="['/english']"
+            data-bs-toggle="collapse" data-bs-target="#navbar">EN</a>
+        </li>
+
       </ul>
     </div>
 
