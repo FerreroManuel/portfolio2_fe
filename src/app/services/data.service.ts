@@ -27,28 +27,28 @@ let domain: string;
 if (hostname == 'localhost') {
   domain = 'http://localhost:8000/';
 } else {
-  domain = 'https://manuelferrero.pythonanywhere.com/'; //! No olvidar la barra al fina!
+  domain = 'https://ferreromanuel.pythonanywhere.com';
 }
 
 const format = '?format=json'
 
 
 // Backends URLs
-const urlContact = domain + 'contact';
-const urlDeveloper = domain + 'developer/1' + format;
-const urlEducation = domain + 'education' + format;
-const urlExperience = domain + 'experience' + format;
-const urlExternalLinks = domain + 'external_link' + format;
-const urlFrameworks = domain + 'framework' + format;
-const urlKeywords = domain + 'title' + format;
-const urlLanguages = domain + 'language' + format;
-const urlProjectCategories = domain + 'project_category' + format;
-const urlProjectImages = domain + 'project_image' + format;
-const urlProjectLanguages = domain + 'project_language' + format;
-const urlProjects = domain + 'project' + format;
-const urlRepositorys = domain + 'repository' + format;
-const urlSkills = domain + 'skill' + format;
-const urlSocialLinks = domain + 'social_link' + format;
+const urlContact = domain + '/contact';
+const urlDeveloper = domain + '/developer/1' + format;
+const urlEducation = domain + '/education' + format;
+const urlExperience = domain + '/experience' + format;
+const urlExternalLinks = domain + '/external_link' + format;
+const urlFrameworks = domain + '/framework' + format;
+const urlKeywords = domain + '/title' + format;
+const urlLanguages = domain + '/language' + format;
+const urlProjectCategories = domain + '/project_category' + format;
+const urlProjectImages = domain + '/project_image' + format;
+const urlProjectLanguages = domain + '/project_language' + format;
+const urlProjects = domain + '/project' + format;
+const urlRepositorys = domain + '/repository' + format;
+const urlSkills = domain + '/skill' + format;
+const urlSocialLinks = domain + '/social_link' + format;
 
 
 
