@@ -111,7 +111,7 @@ export class DataService {
     if (filter === '*') {
       return this._http.get<Project[]>(urlProjects, { headers: this.headers })
     } else {
-      return this._http.get<Project[]>(domain + 'project' + '/' + filter  + format, { headers: this.headers })
+      return this._http.get<Project[]>(domain + '/project' + '/' + filter  + format, { headers: this.headers })
     }
   }
 

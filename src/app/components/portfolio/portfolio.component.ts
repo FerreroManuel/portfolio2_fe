@@ -27,9 +27,6 @@ export class PortfolioComponent implements OnInit {
     this.dataService.getProjects(filter).subscribe({
       next: (res: any) => {
         this.projects = res;
-        for (let project of res) { 
-          console.log('IMG: ' + project.project_images[0].image)
-        }
       },
       error: (err: any) => console.log(err)
     });
@@ -37,6 +34,7 @@ export class PortfolioComponent implements OnInit {
 
 
   filterProjects(filter: string) {
+    console.log('FILTER: ' + filter)
     this.getProjects(filter);
     
     // Quitar la clase filter-active de todos los filtros
