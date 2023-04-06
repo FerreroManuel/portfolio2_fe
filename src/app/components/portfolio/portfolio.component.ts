@@ -27,6 +27,9 @@ export class PortfolioComponent implements OnInit {
     this.dataService.getProjects(filter).subscribe({
       next: (res: any) => {
         this.projects = res;
+        for (let project of res) { 
+          console.log('IMG: ' + project.project_images[0].image)
+        }
       },
       error: (err: any) => console.log(err)
     });

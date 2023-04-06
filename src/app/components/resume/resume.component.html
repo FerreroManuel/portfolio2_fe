@@ -36,54 +36,103 @@
       <!-- Education -->
       <h3 class="resume-title">Educación relacionada a la programación</h3>
 
-      <!-- Dynamic education item -->
-      <div *ngFor="let educItem of education" class="resume-item">
-        <h4>{{ educItem.title }}</h4>
-        <h5 *ngIf="educItem.isPresent; else finishEduBlock">Cursando</h5>
-        <ng-template #finishEduBlock>
-          <h5>{{ educItem.finishDate | date:"yyyy" }}</h5>
-        </ng-template>
+      <!-- Dynamic education items -->
 
-        <p><em class="place">
-            {{ educItem.place }}
-            <a *ngIf="educItem.link" href="{{ educItem.link }}" target="_blank">
-              <i class="bi bi-box-arrow-up-right"></i>
-            </a>
-          </em></p>
-        <pre>{{ educItem.description }}</pre>
-        <a *ngIf="educItem.certificate" class="ms-2" style="cursor: pointer;" data-bs-toggle="modal"
-          [attr.data-bs-target]="'#certificate' + educItem.id">
-          Mostrar certificado <i class="bi bi-file-earmark-medical"></i>
-        </a>
-        <a *ngIf="educItem.repository" href="{{ educItem.repository.readmeLink }}" target="_blank" class="ms-2">
-          Ir al repositorio <i class="bi bi-box-arrow-up-right"></i>
-        </a>
+      <!-- IS PRESENT -->
+      <ng-container *ngFor="let educItem of education">
+        <div *ngIf="educItem.isPresent" class="resume-item">
 
-        <!-- Certificate modal -->
-        <div *ngIf="educItem.certificate" class="modal fade" id="certificate{{ educItem.id }}" tabindex="-1"
-          [attr.aria-labelledby]="'certificateLabel' + educItem.id" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-scrollable modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <p class="h2 modal-title" id="certificateLabel{{ educItem.id }}">Certificado:
-                  {{ educItem.title }}</p>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                  aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="container">
-                  <img src="{{ educItem.certificate }}" class="img-fluid" alt="Certificado: {{ educItem.title }}">
+          <h4>{{ educItem.title }}</h4>
+          <h5>Cursando</h5>
+
+          <p><em class="place">
+              {{ educItem.place }}
+              <a *ngIf="educItem.link" href="{{ educItem.link }}" target="_blank">
+                <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </em></p>
+          <pre>{{ educItem.description }}</pre>
+          <a *ngIf="educItem.certificate" class="ms-2" style="cursor: pointer;" data-bs-toggle="modal"
+            [attr.data-bs-target]="'#certificate' + educItem.id">
+            Mostrar certificado <i class="bi bi-file-earmark-medical"></i>
+          </a>
+          <a *ngIf="educItem.repository" href="{{ educItem.repository.readmeLink }}" target="_blank" class="ms-2">
+            Ir al repositorio <i class="bi bi-box-arrow-up-right"></i>
+          </a>
+
+          <!-- Certificate modal -->
+          <div *ngIf="educItem.certificate" class="modal fade" id="certificate{{ educItem.id }}" tabindex="-1"
+            [attr.aria-labelledby]="'certificateLabel' + educItem.id" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="h2 modal-title" id="certificateLabel{{ educItem.id }}">Certificado:
+                    {{ educItem.title }}</p>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <div class="modal-body">
+                  <div class="container">
+                    <img src="{{ educItem.certificate }}" class="img-fluid" alt="Certificado: {{ educItem.title }}">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
+      </ng-container>
 
+      <!-- IS FINISHED -->
+      <ng-container *ngFor="let educItem of education">
+        <div *ngIf="!educItem.isPresent" class="resume-item">
 
-      </div>
+          <h4>{{ educItem.title }}</h4>
+          <h5>{{ educItem.finishDate | date:"yyyy" }}</h5>
+
+          <p><em class="place">
+              {{ educItem.place }}
+              <a *ngIf="educItem.link" href="{{ educItem.link }}" target="_blank">
+                <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </em></p>
+          <pre>{{ educItem.description }}</pre>
+          <a *ngIf="educItem.certificate" class="ms-2" style="cursor: pointer;" data-bs-toggle="modal"
+            [attr.data-bs-target]="'#certificate' + educItem.id">
+            Mostrar certificado <i class="bi bi-file-earmark-medical"></i>
+          </a>
+          <a *ngIf="educItem.repository" href="{{ educItem.repository.readmeLink }}" target="_blank" class="ms-2">
+            Ir al repositorio <i class="bi bi-box-arrow-up-right"></i>
+          </a>
+
+          <!-- Certificate modal -->
+          <div *ngIf="educItem.certificate" class="modal fade" id="certificate{{ educItem.id }}" tabindex="-1"
+            [attr.aria-labelledby]="'certificateLabel' + educItem.id" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="h2 modal-title" id="certificateLabel{{ educItem.id }}">Certificado:
+                    {{ educItem.title }}</p>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="container">
+                    <img src="{{ educItem.certificate }}" class="img-fluid" alt="Certificado: {{ educItem.title }}">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </ng-container>
 
     </div>
 
@@ -92,64 +141,123 @@
       <h3 class="resume-title">Experiencia Profesional</h3>
 
       <!-- Dynamic experience item -->
-      <div *ngFor="let expItem of experience" class="resume-item">
-        <h4>{{ expItem.title }}</h4>
-        <h5 *ngIf="expItem.isPresent; else finishExpBlock">{{ expItem.startDate | date:'yyyy' }} - Presente</h5>
-        <ng-template #finishExpBlock>
-          <h5>{{ expItem.startDate | date:'yyyy' }} - {{ expItem.finishDate | date:'yyyy' }}</h5>
-        </ng-template>
 
-        <p><em class="place">
-            {{ expItem.company }} - {{ expItem.place }}</em></p>
-        <pre>{{ expItem.description }}</pre>
-        <ul class="link-list">
-          <li *ngIf="expItem.project">
-            <!--! linkear a modal con el proyecto -->
-            <a class="ms-2" style="cursor: pointer;" data-bs-toggle="modal"
-              [attr.data-bs-target]="'#project' + expItem.id">
-              Mostrar detalles del proyecto <i class="bi bi-file-earmark-richtext"></i>
-            </a>
-          </li>
+      <!-- IS PRESENT -->
+      <ng-container *ngFor="let expItem of experience" >
+        <div *ngIf="expItem.isPresent" class="resume-item">
+          <h4>{{ expItem.title }}</h4>
+          <h5>{{ expItem.startDate | date:'yyyy' }} - Presente</h5>
 
-          <li *ngIf="expItem.repository;">
-            <a href="{{ expItem.repository.readmeLink }}" target="_blank" class="ms-2">
-              Ir al repositorio <i class="bi bi-box-arrow-up-right"></i>
-            </a>
-          </li>
+          <p><em class="place">
+              {{ expItem.company }} - {{ expItem.place }}</em></p>
+          <pre>{{ expItem.description }}</pre>
+          <ul class="link-list">
+            <li *ngIf="expItem.project">
+              <a class="ms-2" style="cursor: pointer;" data-bs-toggle="modal"
+                [attr.data-bs-target]="'#project' + expItem.id">
+                Mostrar detalles del proyecto <i class="bi bi-file-earmark-richtext"></i>
+              </a>
+            </li>
 
-          <li *ngFor="let link of expItem.extLink;">
-            <a href="{{ link.link }}" target="_blank" class="ms-2">
-              {{ link.title }} <i class="bi bi-box-arrow-up-right"></i>
-            </a>
-          </li>
-        </ul>
+            <li *ngIf="expItem.repository;">
+              <a href="{{ expItem.repository.readmeLink }}" target="_blank" class="ms-2">
+                Ir al repositorio <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </li>
 
-        <!-- Project modal -->
-        <div *ngIf="expItem.project" class="modal fade" id="project{{ expItem.id }}" tabindex="-1"
-          [attr.aria-labelledby]="'projectLabel' + expItem.id" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-scrollable modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <p class="h2 modal-title" id="projectLabel{{ expItem.id }}">Proyecto:
-                  {{ expItem.project.title }}</p>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                  aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="container">
+            <li *ngFor="let link of expItem.extLink;">
+              <a href="{{ link.link }}" target="_blank" class="ms-2">
+                {{ link.title }} <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </li>
+          </ul>
 
-                  <app-project-details [projectDetails]="expItem.project"></app-project-details>
-
+          <!-- Project modal -->
+          <div *ngIf="expItem.project" class="modal fade" id="project{{ expItem.id }}" tabindex="-1"
+            [attr.aria-labelledby]="'projectLabel' + expItem.id" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="h2 modal-title" id="projectLabel{{ expItem.id }}">Proyecto:
+                    {{ expItem.project.title }}</p>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <div class="modal-body">
+                  <div class="container">
+
+                    <app-project-details [projectDetails]="expItem.project"></app-project-details>
+
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-      </div>
+        </div>
+      </ng-container>
+
+      <!-- IS FINISHED -->
+      <ng-container *ngFor="let expItem of experience" >
+        <div *ngIf="!expItem.isPresent" class="resume-item">
+          <h4>{{ expItem.title }}</h4>
+          <h5>{{ expItem.startDate | date:'yyyy' }} - {{ expItem.finishDate | date:'yyyy' }}</h5>
+
+          <p><em class="place">
+              {{ expItem.company }} - {{ expItem.place }}</em></p>
+          <pre>{{ expItem.description }}</pre>
+          <ul class="link-list">
+            <li *ngIf="expItem.project">
+              <a class="ms-2" style="cursor: pointer;" data-bs-toggle="modal"
+                [attr.data-bs-target]="'#project' + expItem.id">
+                Mostrar detalles del proyecto <i class="bi bi-file-earmark-richtext"></i>
+              </a>
+            </li>
+
+            <li *ngIf="expItem.repository;">
+              <a href="{{ expItem.repository.readmeLink }}" target="_blank" class="ms-2">
+                Ir al repositorio <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </li>
+
+            <li *ngFor="let link of expItem.extLink;">
+              <a href="{{ link.link }}" target="_blank" class="ms-2">
+                {{ link.title }} <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Project modal -->
+          <div *ngIf="expItem.project" class="modal fade" id="project{{ expItem.id }}" tabindex="-1"
+            [attr.aria-labelledby]="'projectLabel' + expItem.id" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="h2 modal-title" id="projectLabel{{ expItem.id }}">Proyecto:
+                    {{ expItem.project.title }}</p>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="container">
+
+                    <app-project-details [projectDetails]="expItem.project"></app-project-details>
+
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </ng-container>
+
     </div>
   </div>
 
