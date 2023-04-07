@@ -8,14 +8,14 @@
             
             <ng-template ngbSlide *ngFor="let img of projectDetails.project_images">
               <div class="picsum-img-wrapper">
-                <img src="{{ img.image }}" alt="{{ img.altText }}" />
+                <img class="img-fluid" src="{{ img.image }}" alt="{{ img.altText }}" />
               </div>
             </ng-template>
             
           </ngb-carousel>
           
           <ng-template #noImg>
-            <img src="assets/media/img/projects/unavailable.jpg" alt="El proyecto no contiene imágenes para mostrar" />
+            <img class="img-fluid" src="assets/media/img/projects/unavailable.jpg" alt="El proyecto no contiene imágenes para mostrar" />
           </ng-template>
 
         </div>
