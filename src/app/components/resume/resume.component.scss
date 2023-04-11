@@ -1,6 +1,5 @@
 pre {
   white-space: pre-wrap;
-  text-align: justify;
   font-family: 'Poppins';
   font-style: italic;
 }
@@ -75,4 +74,8 @@ pre {
 
 .place {
   color: #bbb;
+}
+
+.justify-text {
+  text-align: justify;
 }

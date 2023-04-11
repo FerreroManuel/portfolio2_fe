@@ -92,7 +92,14 @@
     <div class="mt-3">
       <div class="loading" #sendingMsg>Enviando mensaje...</div>
       <div class="error-message" #msgErr>
-        <strong>Se produjo el siguiente error al intentar enviar su mensaje:</strong> &nbsp; <i>{{ msgErrTxt }}</i>
+        <p class="p-0 m-0">
+          <strong>Se produjo el siguiente error al intentar enviar su mensaje:</strong> &nbsp; <i>{{ msgErrTxt }}</i>
+          <br><br>
+          <i>Si el problema persiste puede intentar con cualquiera de los otros métodos indicados previamente.
+            <br>
+            Disculpe las molestias ocasionadas.
+          </i>
+        </p>
       </div>
       <div class="sent-message" #msgOk>
         <strong>Su mensaje ha sido envíado con éxito. Gracias por contactarse!</strong>
