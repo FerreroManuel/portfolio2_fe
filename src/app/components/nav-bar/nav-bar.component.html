@@ -21,31 +21,26 @@
 
         <li class="nav-item" id="home">
           <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'home'}" [routerLink]="['']"
-            data-bs-toggle="collapse" data-bs-target="#navbar">Inicio</a>
+            data-bs-toggle="collapse" data-bs-target="#navbar"> {{ 'nav-bar__home' | translate }} </a>
         </li>
 
         <li class="nav-item" id="about">
           <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'about'}" [routerLink]="['/about']"
-            data-bs-toggle="collapse" data-bs-target="#navbar">Acerca de mí</a>
+            data-bs-toggle="collapse" data-bs-target="#navbar"> {{ 'nav-bar__about' | translate }} </a>
         </li>
 
         <li class="nav-item" id="resume">
           <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'resume'}" [routerLink]="['/resume']"
-            data-bs-toggle="collapse" data-bs-target="#navbar">Curriculum Vitae</a></li>
+            data-bs-toggle="collapse" data-bs-target="#navbar"> {{ 'nav-bar__resume' | translate }} </a></li>
 
         <li class="nav-item" id="portfolio">
           <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'portfolio'}" [routerLink]="['/portfolio']"
-            data-bs-toggle="collapse" data-bs-target="#navbar">Portfolio</a>
+            data-bs-toggle="collapse" data-bs-target="#navbar"> {{ 'nav-bar__portfolio' | translate }} </a>
         </li>
 
         <li class="nav-item" id="contact">
           <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'contact'}" [routerLink]="['/contact']"
-            data-bs-toggle="collapse" data-bs-target="#navbar">Contacto</a>
-        </li>
-
-        <li class="nav-item" id="english">
-          <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'english'}" [routerLink]="['/english']"
-            data-bs-toggle="collapse" data-bs-target="#navbar">EN</a>
+            data-bs-toggle="collapse" data-bs-target="#navbar"> {{ 'nav-bar__contact' | translate }} </a>
         </li>
 
       </ul>

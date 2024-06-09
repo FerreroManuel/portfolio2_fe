@@ -1,9 +1,9 @@
 <div class="container-lg resume">
 
   <div class="section-title my-5">
-    <h1>Curriculum Vitae</h1>
+    <h1> {{ 'resume__title' | translate }} </h1>
     <h2>
-      Experiencia laboral y educación
+      {{ 'resume__subtitle' | translate }}
 
       <a href="{{ developer.cvEsp }}" target="_blank" class="resume">
         <i class="bi bi-file-earmark-arrow-down"></i>
@@ -18,7 +18,7 @@
     <div class="col-lg-6">
 
       <!-- Summary -->
-      <h3 class="resume-title">Resumen</h3>
+      <h3 class="resume-title"> {{ 'resume__summary' | translate }} </h3>
       <div class="resume-item pb-0">
         <h4>{{ developer.jobTitle }}</h4>
         <p class="justify-text">
@@ -34,7 +34,7 @@
       </div>
 
       <!-- Education -->
-      <h3 class="resume-title">Educación relacionada a la programación</h3>
+      <h3 class="resume-title"> {{ 'resume__education_title' | translate }} </h3>
 
       <!-- Dynamic education items -->
 
@@ -43,7 +43,7 @@
         <div *ngIf="educItem.isPresent" class="resume-item">
 
           <h4>{{ educItem.title }}</h4>
-          <h5>Cursando</h5>
+          <h5> {{ 'resume__in_progress' | translate }} </h5>
 
           <p><em class="place">
               {{ educItem.place }}
@@ -54,10 +54,10 @@
           <pre>{{ educItem.description }}</pre>
           <a *ngIf="educItem.certificate" class="ms-2" style="cursor: pointer;" data-bs-toggle="modal"
             [attr.data-bs-target]="'#certificate' + educItem.id">
-            Mostrar certificado <i class="bi bi-file-earmark-medical"></i>
+            {{ 'resume__show_certificate' | translate }} <i class="bi bi-file-earmark-medical"></i>
           </a>
           <a *ngIf="educItem.repository" href="{{ educItem.repository.readmeLink }}" target="_blank" class="ms-2">
-            Ir al repositorio <i class="bi bi-box-arrow-up-right"></i>
+            {{ 'global__go_to_repository' | translate }} <i class="bi bi-box-arrow-up-right"></i>
           </a>
 
           <!-- Certificate modal -->
@@ -66,18 +66,18 @@
             <div class="modal-dialog modal-dialog-scrollable modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <p class="h2 modal-title" id="certificateLabel{{ educItem.id }}">Certificado:
+                  <p class="h2 modal-title" id="certificateLabel{{ educItem.id }}"> {{ 'resume__certificate' | translate }}
                     {{ educItem.title }}</p>
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <div class="container">
-                    <img src="{{ educItem.certificate }}" class="img-fluid" alt="Certificado: {{ educItem.title }}">
+                    <img src="{{ educItem.certificate }}" class="img-fluid" alt="{{ 'resume__certificate' | translate }} {{ educItem.title }}">
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'global__close' | translate }} </button>
                 </div>
               </div>
             </div>
@@ -102,10 +102,10 @@
           <pre>{{ educItem.description }}</pre>
           <a *ngIf="educItem.certificate" class="ms-2" style="cursor: pointer;" data-bs-toggle="modal"
             [attr.data-bs-target]="'#certificate' + educItem.id">
-            Mostrar certificado <i class="bi bi-file-earmark-medical"></i>
+            {{ 'resume__show_certificate' | translate }} <i class="bi bi-file-earmark-medical"></i>
           </a>
           <a *ngIf="educItem.repository" href="{{ educItem.repository.readmeLink }}" target="_blank" class="ms-2">
-            Ir al repositorio <i class="bi bi-box-arrow-up-right"></i>
+            {{ 'global__go_to_repository' | translate }} <i class="bi bi-box-arrow-up-right"></i>
           </a>
 
           <!-- Certificate modal -->
@@ -114,18 +114,18 @@
             <div class="modal-dialog modal-dialog-scrollable modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <p class="h2 modal-title" id="certificateLabel{{ educItem.id }}">Certificado:
+                  <p class="h2 modal-title" id="certificateLabel{{ educItem.id }}"> {{ 'resume__certificate' | translate }}
                     {{ educItem.title }}</p>
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <div class="container">
-                    <img src="{{ educItem.certificate }}" class="img-fluid" alt="Certificado: {{ educItem.title }}">
+                    <img src="{{ educItem.certificate }}" class="img-fluid" alt="{{ 'resume__certificate' | translate }} {{ educItem.title }}">
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'global__close' | translate }} </button>
                 </div>
               </div>
             </div>
@@ -138,7 +138,7 @@
 
     <!-- Professional experience -->
     <div class="col-lg-6">
-      <h3 class="resume-title">Experiencia Profesional</h3>
+      <h3 class="resume-title"> {{ 'resume__experience_title' | translate }} </h3>
 
       <!-- Dynamic experience item -->
 
@@ -146,7 +146,7 @@
       <ng-container *ngFor="let expItem of experience" >
         <div *ngIf="expItem.isPresent" class="resume-item">
           <h4>{{ expItem.title }}</h4>
-          <h5>{{ expItem.startDate | date:'yyyy' }} - Presente</h5>
+          <h5>{{ expItem.startDate | date:'yyyy' }} - {{ 'present' | translate }} </h5>
 
           <p><em class="place">
               {{ expItem.company }} - {{ expItem.place }}</em></p>
@@ -155,13 +155,13 @@
             <li *ngIf="expItem.project">
               <a class="ms-2" style="cursor: pointer;" data-bs-toggle="modal"
                 [attr.data-bs-target]="'#project' + expItem.id">
-                Mostrar detalles del proyecto <i class="bi bi-file-earmark-richtext"></i>
+                {{ 'resume__see_details' | translate }} <i class="bi bi-file-earmark-richtext"></i>
               </a>
             </li>
 
             <li *ngIf="expItem.repository;">
               <a href="{{ expItem.repository.readmeLink }}" target="_blank" class="ms-2">
-                Ir al repositorio <i class="bi bi-box-arrow-up-right"></i>
+                {{ 'global__go_to_repository' | translate }} <i class="bi bi-box-arrow-up-right"></i>
               </a>
             </li>
 
@@ -178,7 +178,7 @@
             <div class="modal-dialog modal-dialog-scrollable modal-xl">
               <div class="modal-content">
                 <div class="modal-header">
-                  <p class="h2 modal-title" id="projectLabel{{ expItem.id }}">Proyecto:
+                  <p class="h2 modal-title" id="projectLabel{{ expItem.id }}"> {{ 'resume__project' | translate }}
                     {{ expItem.project.title }}</p>
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Close"></button>
@@ -191,7 +191,7 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'global__close' | translate }} </button>
                 </div>
               </div>
             </div>
@@ -213,13 +213,13 @@
             <li *ngIf="expItem.project">
               <a class="ms-2" style="cursor: pointer;" data-bs-toggle="modal"
                 [attr.data-bs-target]="'#project' + expItem.id">
-                Mostrar detalles del proyecto <i class="bi bi-file-earmark-richtext"></i>
+                {{ 'resume__see_details' | translate }} <i class="bi bi-file-earmark-richtext"></i>
               </a>
             </li>
 
             <li *ngIf="expItem.repository;">
               <a href="{{ expItem.repository.readmeLink }}" target="_blank" class="ms-2">
-                Ir al repositorio <i class="bi bi-box-arrow-up-right"></i>
+                {{ 'global__go_to_repository' | translate }} <i class="bi bi-box-arrow-up-right"></i>
               </a>
             </li>
 
@@ -236,7 +236,7 @@
             <div class="modal-dialog modal-dialog-scrollable modal-xl">
               <div class="modal-content">
                 <div class="modal-header">
-                  <p class="h2 modal-title" id="projectLabel{{ expItem.id }}">Proyecto:
+                  <p class="h2 modal-title" id="projectLabel{{ expItem.id }}"> {{ 'resume__project' | translate }}
                     {{ expItem.project.title }}</p>
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Close"></button>
@@ -249,7 +249,7 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> {{ 'global__close' | translate }} </button>
                 </div>
               </div>
             </div>

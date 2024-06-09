@@ -8,6 +8,9 @@ import { IconModule } from '@visurel/iconify-angular';
 
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -18,11 +21,16 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DataService } from './services/data.service';
 import { NotFoundComponent } from './components/errors/not-found/not-found.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EnglishComponent } from './components/english/english.component';
 
+
+
+// Loading translation files
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 registerLocaleData(localeEs, 'es-AR')
 
@@ -38,7 +46,6 @@ registerLocaleData(localeEs, 'es-AR')
     ContactComponent,
     NotFoundComponent,
     ProjectDetailsComponent,
-    EnglishComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +55,13 @@ registerLocaleData(localeEs, 'es-AR')
     BrowserAnimationsModule,
     NgbCarouselModule,
     ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      }
+    }),
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'es-AR'},

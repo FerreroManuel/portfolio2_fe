@@ -15,20 +15,19 @@
           </ngb-carousel>
           
           <ng-template #noImg>
-            <img class="img-fluid" src="assets/media/img/projects/unavailable.jpg" alt="El proyecto no contiene imágenes para mostrar" />
+            <img class="img-fluid" src="assets/media/img/projects/unavailable.jpg" alt="{{ 'project-details__no_imgs' | translate }}" />
           </ng-template>
 
         </div>
 
         <div class="col-lg-5 portfolio-info">
-          <h3>Información del proyecto</h3>
+          <h3> {{ 'project-details__title' | translate }} </h3>
           <ul class="project-header">
-            <li><strong>Categoría</strong>: {{ projectDetails.category.title }}</li>
-            <li><strong>Cliente</strong>: {{ projectDetails.client }}</li>
-            <li><strong>Fecha de inicio del proyecto</strong>: {{ projectDetails.startDate | date:"MMMM y":"" }}</li>
-            <li><strong>Estado del proyecto</strong>: {{ getStatus() }} <i class="bi bi-circle-fill"
-                [style]="getColorStatus()"></i></li>
-            <li><strong>Lenguages utilizados</strong>: {{ getLanguages() }}.</li>
+            <li><strong> {{ 'project-details__category' | translate }} </strong>: {{ projectDetails.category.title }}</li>
+            <li><strong> {{ 'project-details__client' | translate }} </strong>: {{ projectDetails.client }}</li>
+            <li><strong> {{ 'project-details__date' | translate }} </strong>: {{ projectDetails.startDate | date:"MMMM y":"" }}</li>
+            <li><strong> {{ 'project-details__status' | translate }} </strong>: {{ getStatus() }} <i class="bi bi-circle-fill" [style]="getColorStatus()"></i></li>
+            <li><strong> {{ 'project-details__langs' | translate }} </strong>: {{ getLanguages() }}.</li>
           </ul>
 
           <hr>
@@ -41,7 +40,7 @@
             
             <li *ngIf="projectDetails.repository;">
               <a href="{{ projectDetails.repository.readmeLink }}" target="_blank" class="ms-2">
-                Ir al repositorio <i class="bi bi-box-arrow-up-right"></i>
+                {{ 'global__go_to_repository' | translate }} <i class="bi bi-box-arrow-up-right"></i>
               </a>
             </li>
   

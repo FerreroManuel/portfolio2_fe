@@ -1,8 +1,8 @@
 <div class="container-lg">
 
   <div class="section-title my-5">
-    <h1>Contacto</h1>
-    <h2>Datos de contacto</h2>
+    <h1> {{ 'contact__title' | translate }} </h1>
+    <h2> {{ 'contact__subtitle' | translate }} </h2>
   </div>
 
   <div class="row mt-2">
@@ -10,7 +10,7 @@
     <div class="col-md-6 d-flex align-items-stretch">
       <div class="info-box">
         <i class="bx bi bi-geo-alt"></i>
-        <h3>Ubicación actual</h3>
+        <h3> {{ 'contact__location' | translate }} </h3>
         <p>{{ residence }}</p>
       </div>
     </div>
@@ -18,7 +18,7 @@
     <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
       <div class="info-box">
         <i class="bx bi bi-share"></i>
-        <h3>Links externos</h3>
+        <h3> {{ 'contact__external_links' | translate }} </h3>
         <div class="social-links">
           <a *ngFor="let link of socialLinks" href="{{ link.link }}" target="_blank">
             <i class="{{ link.icon }}"></i>
@@ -30,14 +30,14 @@
     <div class="col-md-6 mt-4 d-flex align-items-stretch">
       <div class="info-box">
         <i class="bx bi bi-envelope"></i>
-        <h3>Email</h3>
+        <h3> {{ 'contact__email' | translate }} </h3>
         <p><a href="mailto:{{ email }}">{{ email }}</a></p>
       </div>
     </div>
     <div class="col-md-6 mt-4 d-flex align-items-stretch">
       <div class="info-box">
         <i class="bx bi bi-telephone"></i>
-        <h3>Teléfono</h3>
+        <h3> {{ 'contact__phone' | translate }} </h3>
         <p>{{ phone }}</p>
       </div>
     </div>
@@ -47,19 +47,19 @@
 
   <form class="email-form mt-4" [formGroup]="contactForm" id="contactForm" (ngSubmit)="formSubmit()">
     <div class="mb-4">
-      <span class="h5">FORMULARIO DE CONTACTO</span>
-      <span class="text-muted small fst-italic">(todos los campos son obligatorios)</span>
+      <span class="h5"> {{ 'contact__form' | translate }} </span>
+      <span class="text-muted small fst-italic"> {{ 'contact__all_field_required' | translate }} </span>
     </div>
 
     <div class="row">
 
       <div class="col-md-6 form-group">
         <input type="text" name="name" formControlName="name" class="form-control" id="name"
-          placeholder="Su nombre y apellido" required>
+          placeholder="{{ 'contact__name_placeholder' | translate }}" required>
       </div>
 
       <div class="col-md-6 form-group mt-3 mt-md-0">
-        <input type="email" class="form-control" name="email" formControlName="email" id="email" placeholder="Su email"
+        <input type="email" class="form-control" name="email" formControlName="email" id="email" placeholder="{{ 'contact__email_placeholder' | translate }}"
           required>
       </div>
 
@@ -69,50 +69,47 @@
 
       <select class="new-select" name="subject" formControlName="subject" id="subject" #subject
         (change)="changeSelectColor(subject.value)" required>
-        <option class="opt" hidden selected disabled value="" #subjectPlaceholder>Seleccione un asunto</option>
-        <option class="opt" value="Oferta de empleo">Oferta de empleo</option>
-        <option class="opt" value="Consulta general">Consulta general</option>
-        <option class="opt" value="Error en el sitio web">Error en el sitio web</option>
-        <option class="opt" value="Error en Morella">Error en Morella</option>
-        <option class="opt" value="Otro">Otro</option>
+        <option class="opt" hidden selected disabled value="" #subjectPlaceholder> {{ 'contact__subject_placeholder' | translate }} </option>
+        <option class="opt" value="Oferta de empleo"> {{ 'contact__subject_job_offer' | translate }} </option>
+        <option class="opt" value="Consulta general"> {{ 'contact__subject_general_inquire' | translate }} </option>
+        <option class="opt" value="Error en el sitio web"> {{ 'contact__subject_website_error' | translate }} </option>
+        <option class="opt" value="Error en Morella"> {{ 'contact__subject_morella_error' | translate }} </option>
+        <option class="opt" value="Otro"> {{ 'contact__subject_other' | translate }} </option>
       </select>
 
     </div>
 
     <div class="form-group mt-3" id="otherSubjectDiv">
       <input type="text" class="form-control" name="otherSubject" formControlName="otherSubject" id="otherSubject"
-        placeholder="Especifique asunto" [hidden]="subject.value != 'Otro'" [required]="subject.value == 'Otro'">
+        placeholder="{{ 'contact__other_subject_placeholder' | translate }}" [hidden]="subject.value != 'Otro'" [required]="subject.value == 'Otro'">
     </div>
 
     <div class="form-group mt-3">
-      <textarea class="form-control" name="message" formControlName="message" rows="5" placeholder="Mensaje"
+      <textarea class="form-control" name="message" formControlName="message" rows="5" placeholder="{{ 'contact__message_placeholder' | translate }}"
         required></textarea>
     </div>
 
     <div class="mt-3">
-      <div class="loading" #sendingMsg>Enviando mensaje...</div>
+      <div class="loading" #sendingMsg> {{ 'contact__sending_message' | translate }} </div>
       <div class="error-message" #msgErr>
         <p class="p-0 m-0">
-          <strong>Se produjo el siguiente error al intentar enviar su mensaje:</strong> &nbsp; <i>{{ msgErrTxt }}</i>
+          <strong> {{ 'contact__error_msg_1' | translate }} </strong> &nbsp; <i>{{ msgErrTxt }}</i>
           <br><br>
-          <i>Si el problema persiste puede intentar con cualquiera de los otros métodos indicados previamente.
+          <i>{{ 'contact__error_msg_2' | translate }}
             <br>
-            Disculpe las molestias ocasionadas.
+            {{ 'contact__error_msg_3' | translate }}
           </i>
         </p>
       </div>
       <div class="sent-message" #msgOk>
-        <strong>Su mensaje ha sido envíado con éxito. Gracias por contactarse!</strong>
+        <strong> {{ 'contact__success_msg' | translate }} </strong>
       </div>
     </div>
 
     <div>
       <button class="my-3" type="submit" name="submit" [disabled]="!contactForm.valid">
-        <b>Enviar</b>
+        <b> {{ 'contact__send_btn' | translate }} </b>
       </button>
     </div>
-
-
-
 
   </form>
