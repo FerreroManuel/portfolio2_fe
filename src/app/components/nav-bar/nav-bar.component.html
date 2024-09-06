@@ -3,8 +3,9 @@
 
 
     <span class="navbar-brand me-0">{{firstName}} {{lastName}}</span>
-    
-    <span *ngIf="openToWork" class="badge bg-success rounded-pill" (mouseover)="onOpenToWork()" (mouseout)="onOpenToWork()" (click)="goContact()">
+
+    <span *ngIf="openToWork" class="badge bg-success rounded-pill" (mouseover)="onOpenToWork()"
+      (mouseout)="onOpenToWork()" (click)="goContact()">
       {{ openSpan }}
     </span>
 
@@ -15,7 +16,7 @@
 
 
     <div class="collapse navbar-collapse" id="navbar">
-      <!-- Spacer --> <div class="me-auto"></div> <!-- Spacer -->
+      <div class="me-auto"></div> <!-- Spacer -->
 
       <ul class="navbar-nav mb-2 mb-md-0">
 
@@ -41,6 +42,16 @@
         <li class="nav-item" id="contact">
           <a class="nav-link" [ngClass]="{'nav-item active': navAct === 'contact'}" [routerLink]="['/contact']"
             data-bs-toggle="collapse" data-bs-target="#navbar"> {{ 'nav-bar__contact' | translate }} </a>
+        </li>
+
+        <span class="ms-3 me-2 d-none d-lg-block" style="cursor: default;">|</span>
+
+        <li class="nav-item mt-3 mt-lg-0" id="language">
+          <a class="nav-link pointer" (click)="changeLanguage()" data-bs-toggle="collapse" data-bs-target="#navbar">
+            <span class="d-lg-none">{{ 'nav-bar__lang' | translate }} {{" "}} </span>
+            <img class="mb-1" style="width: 24px;" alt="{{ 'nav-bar__lang' | translate }}"
+              src="/assets/img/flags/{{oppositeLang}}.svg" title="{{ 'nav-bar__lang' | translate }}" />
+          </a>
         </li>
 
       </ul>

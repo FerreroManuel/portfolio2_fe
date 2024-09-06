@@ -46,7 +46,7 @@ a {
   color: #1878d2;
   text-decoration: none;
   transition: all 1s ease 0s;
-  }
+}
 
 a:hover {
   color: #18b0d2;
@@ -104,6 +104,10 @@ a:hover {
 .modal-content,
 .modal-header,
 .modal-footer {
-  background-color: rgba(0,0,0,.8);
+  background-color: rgba(0, 0, 0, .8);
   border-color: #252525;
+}
+
+.pointer {
+  cursor: pointer;
 }

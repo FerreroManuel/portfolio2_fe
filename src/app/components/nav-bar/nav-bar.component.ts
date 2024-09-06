@@ -1,36 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { TranslationService } from 'src/app/services/translations.service';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
-
   firstName: string;
   lastName: string;
   openToWork: boolean;
   navAct: string;
   navBar: any;
-  openSpan: string = '#'
+  openSpan: string = '#';
+  oppositeLang: string;
 
-  constructor(private dataService: DataService, private _router: Router) {
+  constructor(
+    private dataService: DataService,
+    private _router: Router,
+    private translate: TranslationService
+  ) {
     this.dataService.changeActive.subscribe((page) => {
-      this.navAct = page
-      if(page === 'home') {
-        this.navBar = false
+      this.navAct = page;
+      if (page === 'home') {
+        this.navBar = false;
       } else {
-        this.navBar = false 
+        this.navBar = false;
       }
     });
-  };
 
-  ngOnInit(): void {
-      this.getDeveloper();
+    this.oppositeLang = this.translate.getOppositeLanguage();
   }
 
+  ngOnInit(): void {
+    this.getDeveloper();
+  }
 
   getDeveloper() {
     this.dataService.getDeveloper().subscribe({
@@ -39,11 +45,11 @@ export class NavBarComponent implements OnInit {
         this.lastName = res.lastName;
         this.openToWork = res.openToWork;
       },
-      error: (err: any) => console.log(err)
+      error: (err: any) => console.log(err),
     });
   }
 
-  onOpenToWork() { 
+  onOpenToWork() {
     if (this.openSpan === '#') {
       this.openSpan = '#OPENTOWORK';
     } else if (this.openSpan === '#OPENTOWORK') {
@@ -52,7 +58,11 @@ export class NavBarComponent implements OnInit {
   }
 
   goContact() {
-    this._router.navigate(['contact'])
+    this._router.navigate(['contact']);
   }
 
+  changeLanguage() {
+    this.translate.changeLanguage(this.oppositeLang);
+    location.reload();
+  }
 }
