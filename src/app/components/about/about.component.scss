@@ -1,5 +1,11 @@
 .about-text {
   background-color: rgba(0, 0, 0, .7);
+  overflow: auto;
+  max-height: 450px;
+}
+
+#aboutPhoto {
+  height: 450px;
 }
 
 pre {
