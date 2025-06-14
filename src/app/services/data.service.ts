@@ -27,7 +27,7 @@ let domain: string;
 if (hostname == 'localhost') {
   domain = 'http://localhost:8000';
 } else {
-  domain = 'https://ferreromanuel.pythonanywhere.com';
+  domain = "https://api.manuelferrero.com.ar";
 }
 
 const format = '?format=json'
